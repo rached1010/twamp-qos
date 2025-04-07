@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package testpb;
+option go_package = "twampqos/testpb";
+
+service TestService {
+  rpc RunQoSTest(QoSTestRequest) returns (QoSTestResponse);
+}
+
+message QoSTestRequest {
+  string test_id = 1;
+  string source_ip = 2;
+  string destination_ip = 3;
+  int32 duration_seconds = 4;
+}
+
+message QoSTestResponse {
+  string status = 1;
+  string result = 2;
+}
